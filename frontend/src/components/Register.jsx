@@ -202,7 +202,7 @@ const Register = () => {
           </div>
         {/* username, email, password, confirm password inputs */}
         <button type="submit" className="register-btn">
-          <FaUserPlus /> Create Account
+         <Link to="/choose-role"> <FaUserPlus /> Create Account</Link>
         </button>
 
         <div className="login-link">
