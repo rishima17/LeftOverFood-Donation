@@ -16,10 +16,13 @@ const Login = () => {
     }
 
     try {
-      const res = await axios.post("https://leftoverfood-donation.onrender.com/api/auth/login", {
-        email,
-        password,
-      });
+    const res = await axios.post(
+  "https://leftoverfood-donation.onrender.com/api/auth/login",
+  { email, password },
+  { withCredentials: true } // ⚠ important if using cookies
+);
+
+    
 
       localStorage.setItem("token", res.data.token);
       setMessage("Login successful ✅");
