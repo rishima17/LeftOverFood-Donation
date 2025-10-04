@@ -28,7 +28,7 @@ const Register = () => {
     try {
       const res = await axios.post(
         "https://leftoverfood-donation.onrender.com/api/auth/register",
-        { username, email, password },
+        { username, email, password ,confirmPassword },
         { withCredentials: true } // if backend uses cookies
       );
 
