@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const DonorDashboard = () => {
   const navigate = useNavigate();
@@ -43,9 +43,9 @@ const DonorDashboard = () => {
         </div>
       </div>
 
-      <button style={styles.backBtn} onClick={() => navigate("/choose-role")}>
+      <Link to="/choose-role" style={styles.backBtn}>
         ← Back
-      </button>
+      </Link>
     </div>
   );
 };
