@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -10,10 +15,11 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("rememberMe");
-    window.location.href = "/login"; // optional: can also use navigate
-  };
+  localStorage.removeItem("token");
+  localStorage.removeItem("rememberMe");
+  setLoggedIn(false); // update header immediately
+  navigate("/login"); // react-router navigation
+};
 
   const toggleMenu = () => {
     document.getElementById("navLinks").classList.toggle("active");
