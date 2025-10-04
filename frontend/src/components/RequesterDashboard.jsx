@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 
 const RequesterDashboard = () => {
   const navigate = useNavigate();
@@ -40,9 +40,9 @@ const RequesterDashboard = () => {
         </div>
       </div>
 
-      <button style={styles.backBtn} onClick={() => navigate("/choose-role")}>
+      <Link to="/choose-role" style={styles.backBtn}>
         ← Back
-      </button>
+      </Link>
     </div>
   );
 };
