@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 const RequestorForm = () => {
   const navigate = useNavigate();
@@ -156,13 +158,10 @@ const RequestorForm = () => {
             <button type="submit" style={styles.submitBtn}>
               Submit Request
             </button>
-            <button
-              type="button"
-              style={styles.backBtn}
-              onClick={() => navigate("/requester-dashboard")}
-            >
-              ← Back
-            </button>
+             <Link to="/requester-dashboard" style={styles.backBtn}>
+    ← Back
+  </Link>
+
           </div>
         </form>
       </div>
