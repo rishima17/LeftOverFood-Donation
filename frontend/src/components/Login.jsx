@@ -164,7 +164,7 @@ const Login = () => {
         </div>
 
         <div className="back-home">
-          <Link to="/choose-role">
+          <Link to="/dashboard">
             <FaArrowLeft /> Back to Home
           </Link>
         </div>
