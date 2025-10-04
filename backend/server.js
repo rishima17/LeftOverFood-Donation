@@ -8,14 +8,13 @@ dotenv.config();
 const app = express();
 
 // ✅ CORS Configuration
-app.use(cors({
-  origin: [
-    "http://localhost:5173",  // your React (Vite) app
-    "https://left-over-food-donation-git-main-rishimas-projects.vercel.app/",
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true, // allows cookies if you ever use them
-}));
+app.use(
+  cors({
+    origin: "https://left-over-food-donation-git-main-rishimas-projects.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true, // optional if you use cookies
+  })
+);
 
 app.use(express.json());
 
