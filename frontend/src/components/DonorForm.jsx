@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const DonorForm = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const DonorForm = () => {
     e.preventDefault();
     console.log("Donation submitted:", { donorType, ...formData });
     alert("✅ Donation submitted successfully!");
-    navigate("/dashboard");
+    navigate("/dashboard"); // redirect after submission
   };
 
   return (
@@ -136,13 +136,11 @@ const DonorForm = () => {
             <button type="submit" style={styles.submitBtn}>
               Submit Donation
             </button>
-            <button
-              type="button"
-              style={styles.backBtn}
-              onClick={() => navigate("/donor-dashboard")}
-            >
+
+            {/* Using Link instead of back button */}
+            <Link to="/donor-dashboard" style={styles.backBtn}>
               ← Back
-            </button>
+            </Link>
           </div>
         </form>
       </div>
@@ -150,7 +148,7 @@ const DonorForm = () => {
   );
 };
 
-// 🌿 Modern, polished styling
+// styling remains same
 const styles = {
   page: {
     minHeight: "100vh",
