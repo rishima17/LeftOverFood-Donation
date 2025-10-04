@@ -127,9 +127,79 @@ const Register = () => {
         .back-home a:hover { color: var(--primary-light); }
         .form-message { text-align: center; margin-top: 1rem; color: var(--accent-green); font-weight: 600; }
       `}</style>
-    <div className="register-container">
-      {/* header and form markup remain same */}
-      <form className="register-form" onSubmit={handleRegister}>
+   <div className="register-container">
+        <div className="register-header">
+          <FaUserPlus />
+          <h2>Join Our Community</h2>
+          <p>Create an account to start making a difference</p>
+        </div>
+
+        <form className="register-form" onSubmit={handleRegister}>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <div className="input-group">
+              <FaUser />
+              <input
+                type="text"
+                id="username"
+                placeholder="Choose a username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="email">Email Address</label>
+            <div className="input-group">
+              <FaEnvelope />
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <div className="input-group">
+              <FaLock />
+              <input
+                type="password"
+                id="password"
+                placeholder="Create a password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  checkPasswordStrength(e.target.value);
+                }}
+                required
+              />
+            </div>
+            {password && (
+              <div className="password-strength">{passwordStrength}</div>
+            )}
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <div className="input-group">
+              <FaLock />
+              <input
+                type="password"
+                id="confirm-password"
+                placeholder="Confirm your password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+              />
+            </div>
+          </div>
         {/* username, email, password, confirm password inputs */}
         <button type="submit" className="register-btn">
           <FaUserPlus /> Create Account
