@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -11,7 +12,7 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("rememberMe");
-    window.location.href = "/login";
+    window.location.href = "/login"; // optional: can also use navigate
   };
 
   const toggleMenu = () => {
@@ -30,36 +31,36 @@ const Header = () => {
         </button>
         <ul className="nav-links" id="navLinks">
           <li>
-            <a href="#home">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#about">About Us</a>
+            <Link to="/about">About Us</Link>
           </li>
           <li>
-            <a href="/contact">Contact Us</a>
+            <Link to="/contact">Contact Us</Link>
           </li>
           <li>
-            <a href="#partner">Food Partner</a>
+            <Link to="/partner">Food Partner</Link>
           </li>
           {!loggedIn && (
             <li>
-              <a href="/login" className="btn-login">
+              <Link to="/login" className="btn-login">
                 Login
-              </a>
+              </Link>
             </li>
           )}
           {!loggedIn && (
             <li>
-              <a href="/register" className="btn-register">
+              <Link to="/register" className="btn-register">
                 Register
-              </a>
+              </Link>
             </li>
           )}
           {loggedIn && (
             <li>
-              <a href="/" className="btn-login" onClick={handleLogout}>
+              <Link to="/" className="btn-login" onClick={handleLogout}>
                 Logout
-              </a>
+              </Link>
             </li>
           )}
         </ul>
