@@ -100,19 +100,56 @@ const Login = () => {
         .back-home a:hover { color: var(--primary-light); }
         .form-message { text-align: center; margin-top: 1rem; color: var(--accent-green); font-weight: 600; }
       `}</style>
-    <div className="login-container">
-      {/* your existing styles and markup */}
-      <form className="login-form" onSubmit={handleLogin}>
-        {/* email & password inputs */}
-        <div className="form-options">
-          <label className="remember-me">
-            <input
-              type="checkbox"
-              checked={remember}
-              onChange={(e) => setRemember(e.target.checked)}
-            />{" "}
-            Remember Me
-          </label>
+    
+      <div className="login-container">
+        <div className="login-header">
+          <FaSignInAlt />
+          <h2>Welcome Back!</h2>
+          <p>Login to continue making a difference</p>
+        </div>
+
+        <form className="login-form" onSubmit={handleLogin}>
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <div className="input-group">
+              <FaUser />
+              <input
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <div className="input-group">
+              <FaLock />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Enter your password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-options">
+            <label className="remember-me">
+              <input
+                type="checkbox"
+                checked={remember}
+                onChange={(e) => setRemember(e.target.checked)}
+              />{" "}
+              Remember Me
+            </label>
           <Link to="/forgot-password" className="forgot-password">
             Forgot Password?
           </Link>
