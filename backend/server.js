@@ -11,7 +11,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",  // your React (Vite) app
-    "http://127.0.0.1:5173", // in case you open it via 127.0.0.1
+    "https://left-over-food-donation-git-main-rishimas-projects.vercel.app/",
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true, // allows cookies if you ever use them
